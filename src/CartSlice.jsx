@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const CartSlice = createSlice({
   name: 'cart',
   initialState: {
-    items: [], // Store cart items
+    items: [], // Initialize items array
   },
   reducers: {
     addItem: (state, action) => {
@@ -35,13 +35,9 @@ export const CartSlice = createSlice({
   },
 });
 
-// Selector to calculate the total number of items in the cart
-export const selectTotalQuantity = (state) => {
-  return state.cart.items.reduce((total, item) => total + item.quantity, 0);
-};
+// Selector to calculate total quantity
+export const selectTotalQuantity = (state) =>
+  state.cart.items.reduce((total, item) => total + item.quantity, 0);
 
-// Export the action creators
 export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
-
-// Export the reducer
 export default CartSlice.reducer;
