@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./ProductList.css";
 import CartItem from "./CartItem";
+import { useDispatch } from 'react-redux';
+import { addItem } from './CartSlice';
 
 function ProductList() {
     const [showCart, setShowCart] = useState(false);
@@ -237,8 +239,10 @@ function ProductList() {
     };
 
     // Function to handle adding plants to the cart
+    const dispatch = useDispatch();
+
     const handleAddToCart = (plant) => {
-        setCartItems((prevCartItems) => [...prevCartItems, plant]);
+        dispatch(addItem(plant)); // Dispatch the plant to addItem reducer
     };
 
     // Handle navigation to cart
