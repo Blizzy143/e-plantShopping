@@ -3,6 +3,7 @@ import "./ProductList.css";
 import CartItem from "./CartItem";
 import { useDispatch } from 'react-redux';
 import { addItem } from './CartSlice';
+import { removeItem, updateQuantity } from './CartSlice';
 
 function ProductList() {
     const [showCart, setShowCart] = useState(false);
@@ -244,6 +245,8 @@ function ProductList() {
     const handleAddToCart = (plant) => {
         dispatch(addItem(plant)); // Dispatch the plant to addItem reducer
     };
+
+    
 
     // Handle navigation to cart
     const handleCartClick = (e) => {
