@@ -104,7 +104,7 @@ const CartItem = ({ onContinueShopping }) => {
             <div className="cart-actions">
               <button
                 className="continue-shopping-btn"
-                onClick={handleContinueShopping}
+                onClick={onContinueShopping}
               >
                 Continue Shopping
               </button>
